@@ -10,23 +10,18 @@ themeSwitchRef.addEventListener('change', onThemeSwitchClick);
 
 saveSelectedTheme();
 
-function makeDarkTheme() {
-  bodyRef.classList.add(Theme.DARK);
-  bodyRef.classList.remove(Theme.LIGHT);
-}
-
-function makeLightTheme() {
-  bodyRef.classList.add(Theme.LIGHT);
-  bodyRef.classList.remove(Theme.DARK);
+function updateTheme(addTheme, removeTheme) {
+  bodyRef.classList.add(addTheme);
+  bodyRef.classList.remove(removeTheme);
 }
 
 function onThemeSwitchClick() {
   if (themeSwitchRef.checked) {
     localStorage.setItem('theme', Theme.DARK);
-    makeDarkTheme();
+    updateTheme(Theme.DARK, Theme.LIGHT);
   } else {
     localStorage.setItem('theme', Theme.LIGHT);
-    makeLightTheme();
+    updateTheme(Theme.LIGHT, Theme.DARK);
   }
 }
 
