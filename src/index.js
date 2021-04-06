@@ -1,2 +1,3 @@
 import './styles.css';
-import './js/main.js';
+import './js/template-menu';
+import './js/change-theme';
